@@ -23,8 +23,8 @@ import java.nio.charset.StandardCharsets;
 
 @Slf4j
 @Controller
-public class ReqeustBodyJsonController {
-    private ObjectMapper objectMapper = new ObjectMapper();
+public class RequestBodyJsonController {
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @PostMapping("/request-body-json-v1")
     public void requestBodyJsonV1(HttpServletRequest request, HttpServletResponse response) throws IOException {
