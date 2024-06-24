@@ -17,23 +17,18 @@ public class MemberFormServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        response.setCharacterEncoding("utf8");
-        PrintWriter w = response.getWriter();
-        w.write("""
-                <!DOCTYPE html>
-                <html>
-                    <head>
-                    <meta charset="UTF-8">
-                    <title>Title</title>
-                    </head>
-                    <body>
-                        <form action="/servlet/members/save" method="post">
-                        username: <input type="text" name="username" />
-                        age: <input type="text" name="age" />
-                        <button type="submit">전송</button>
-                        </form>
-                </body>
-                </html>
-                """);
+        response.setCharacterEncoding("utf-8");
+        PrintWriter writer = response.getWriter();
+        writer.write("<html>\n" +
+                "<head>\n" +
+                " <meta charset=\"UTF-8\">\n" + "</head>\n" +
+                "<body>\n" +
+                "성공\n" +
+                "<ul>\n" +
+//                "    <li>id="+member.getId()+"</li>\n" +
+//                "    <li>username="+member.getUsername()+"</li>\n" +
+//                " <li>age="+member.getAge()+"</li>\n" + "</ul>\n" +
+                "<a href=\"/index.html\">메인</a>\n" + "</body>\n" +
+                "</html>");
     }
 }
