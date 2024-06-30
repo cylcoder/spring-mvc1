@@ -3,9 +3,7 @@ package hello.itemservice.domain.item;
 import lombok.*;
 
 @NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
+@Data
 public class Item {
     private Long id;
     private String itemName;
