@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -66,10 +67,25 @@ public class BasicItemController {
         return "basic/item";
     }
 
-    @PostMapping("/add")
-    public String addItemV4(Item item) { // 클래스명의 첫글자만 소문자로 바꿔서 모델에 추가(item)
+//    @PostMapping("/add")
+    public String addItemV4(Item item) {
         itemRepository.save(item);
         return "basic/item";
+    }
+
+//    @PostMapping("/add")
+    public String addItemV5(Item item) {
+        itemRepository.save(item);
+        return "redirect:/basic/items/" + item.getId();
+    }
+
+
+    @PostMapping("/add")
+    public String addItemV6(Item item, RedirectAttributes redirectAttributes) {
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/basic/items/{itemId}"; // 위의 itemId로 치환되고 나머지는 쿼리파라미터 형식으로 들어감(?status=true)
     }
 
     @GetMapping("/{itemId}/edit")
