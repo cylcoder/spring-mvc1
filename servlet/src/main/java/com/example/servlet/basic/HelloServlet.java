@@ -12,7 +12,7 @@ public class HelloServlet extends HttpServlet {
 
   @Override
   protected void service(HttpServletRequest req, HttpServletResponse resp)
-      throws ServletException, IOException {
+      throws IOException {
     System.out.println("HelloServlet.service");
     System.out.println("req = " + req);
     System.out.println("resp = " + resp);
