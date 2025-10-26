@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.HttpRequestHandler;
 
 @Component("/springmvc/request-handler")
-public class MyHttpReqeustHandler implements HttpRequestHandler {
+public class MyHttpRequestHandler implements HttpRequestHandler {
 
   @Override
   public void handleRequest(HttpServletRequest request, HttpServletResponse response) {
