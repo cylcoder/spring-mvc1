@@ -9,6 +9,7 @@ import com.example.servlet.web.frontcontroller.v4.controller.MemberFormControlle
 import com.example.servlet.web.frontcontroller.v4.controller.MemberListControllerV4;
 import com.example.servlet.web.frontcontroller.v4.controller.MemberSaveControllerV4;
 import com.example.servlet.web.frontcontroller.v5.adapter.ControllerV3HandlerAdapter;
+import com.example.servlet.web.frontcontroller.v5.adapter.ControllerV4HandlerAdapter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
