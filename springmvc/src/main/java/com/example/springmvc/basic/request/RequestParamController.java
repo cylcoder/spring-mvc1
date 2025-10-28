@@ -1,11 +1,13 @@
 package com.example.springmvc.basic.request;
 
+import com.example.springmvc.basic.HelloData;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,17 +31,6 @@ public class RequestParamController {
    * @ResponseBody 추가
    * - View 조회를 무시하고, HTTP message body에 직접 해당 내용 입력
    * */
-  @RequestMapping("/request-param-v2")
-  @ResponseBody
-  public String requestParamV2(String memberName, int memberAge) {
-    log.info("memberName={}, memberAge={}", memberName, memberAge);
-    return "OK";
-  }
-
-  /**
-   * @RequestParam 사용 - 파라미터 이름으로 바인딩
-   * @RequestBody 추가 - View 조회를 무시하고, HTTP message body에 직접 해당 내용 입력
-   */
   @RequestMapping("/request-param-v2")
   @ResponseBody
   public String requestParamV2(String memberName, int memberAge) {
@@ -113,6 +104,20 @@ public class RequestParamController {
   @ResponseBody
   public String requestParamMap(@RequestParam Map<String, Object> paramMap) {
     paramMap.forEach((key, value) -> log.info("{}={}", key, value));
+    return "OK";
+  }
+
+  @RequestMapping("/model-attribute-v1")
+  @ResponseBody
+  public String modelAttributeV1(@ModelAttribute  HelloData helloData) {
+    log.info("helloData={}", helloData);
+    return "OK";
+  }
+
+  @RequestMapping("/model-attribute-v2")
+  @ResponseBody
+  public String modelAttributeV2(  HelloData helloData) {
+    log.info("helloData={}", helloData);
     return "OK";
   }
 
