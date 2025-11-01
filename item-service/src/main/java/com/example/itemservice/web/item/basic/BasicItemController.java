@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/basic/items")
@@ -75,10 +76,16 @@ public class BasicItemController {
    * @ModelAttribute 자체 생략 가능
    * model.addAttribute(item) 자동 추가
    */
-  @PostMapping("/add")
+//  @PostMapping("/add")
   public String addItemV4(Item item) {
     itemRepository.save(item);
     return "basic/item";
+  }
+
+//  @PostMapping("/add")
+  public String addItemV5(Item item) {
+    itemRepository.save(item);
+    return "redirect:/basic/items/" + item.getId();
   }
 
   @GetMapping("/{itemId}/edit")
@@ -88,7 +95,7 @@ public class BasicItemController {
     return "basic/editForm";
   }
 
-  @PostMapping("/{itemid}/edit")
+//  @PostMapping("/{itemId}/edit")
   public String edit(@PathVariable("itemId") Long id, Item item) {
     itemRepository.update(id, item);
     return "redirect:/basic/items/{itemId}";
