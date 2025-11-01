@@ -88,6 +88,15 @@ public class BasicItemController {
     return "redirect:/basic/items/" + item.getId();
   }
 
+  // RedirectAttributes
+  @PostMapping("/add")
+  public String addItemV6(Item item, RedirectAttributes redirectAttributes) {
+    Item savedItem = itemRepository.save(item);
+    redirectAttributes.addAttribute("itemId", savedItem.getId());
+    redirectAttributes.addAttribute("status", true);
+    return "redirect:/basic/items/{itemId}";
+  }
+
   @GetMapping("/{itemId}/edit")
   public String editForm(@PathVariable("itemId") Long id, Model model) {
     Item item = itemRepository.findById(id);
