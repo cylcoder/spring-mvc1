@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 public class Item {
 
   private Long id;
-  private String name;
+  private String itemName;
   private Integer price;
   private Integer quantity;
 
-  public Item(String name, Integer price, Integer quantity) {
-    this.name = name;
+  public Item(String itemName, Integer price, Integer quantity) {
+    this.itemName = itemName;
     this.price = price;
     this.quantity = quantity;
   }
